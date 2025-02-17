@@ -103,3 +103,46 @@ body {
     0%, 100% { opacity: 0.5; }
     50% { opacity: 1; }
 }
+
+/* Animações para suavizar a entrada do conteúdo */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.info-container h1, .info-container p {
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Fontes */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2 {
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+}
+
+/* Botões */
+button {
+    padding: 10px 20px;
+    background-color: #2193b0;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #6dd5ed;
+}
