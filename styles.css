@@ -1,17 +1,18 @@
-body {
+body { 
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow: auto; /* Permite que a página role caso o conteúdo ultrapasse a tela */
     background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
     color: #fff;
     font-family: Arial, sans-serif;
-    height: 100vh;
+    height: 100vh; /* Garante que a altura ocupe a tela inteira */
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
 }
 
+/* Info Container */
 .info-container {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(5px);
@@ -27,25 +28,19 @@ body {
     transform-origin: center;
     transition: transform 0.5s ease, padding 0.5s ease, opacity 0.5s ease, width 0.5s ease, height 0.5s ease;
     display: flex;
-    flex-direction: column; /* Adicionando flex-direction vertical */
-    justify-content: flex-start; /* Alinha o conteúdo no topo */
-    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-.info-container .text-content {
-    display: block;
-    transition: font-size 0.5s ease;
-    word-wrap: break-word;
-}
-
-/* Controle de tamanhos no texto */
+/* Texto dentro do container */
 .info-container h1, .info-container p {
     font-size: 1rem;
     transition: font-size 0.5s ease;
-    margin: 5px 0; /* Espaço entre os itens de texto */
+    margin: 5px 0;
 }
 
-/* Ajuste na imagem para não aumentar muito */
+/* Estilo da imagem */
 .info-container img {
     position: absolute;
     top: 20px;
@@ -56,29 +51,27 @@ body {
     transition: top 0.5s ease, left 0.5s ease;
 }
 
-/* Expansão controlada */
+/* Efeito de hover para expansão */
 .info-container:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     padding: 30px;
-    width: 80vw; /* Limita a largura */
-    height: 60vh; /* Limita a altura */
+    width: 80vw;
+    height: 60vh;
     opacity: 1;
 }
 
-.info-container:hover .text-content {
-    font-size: 1.2rem; /* Limita o aumento do texto */
-    max-width: 90%; /* Garante que o texto não ultrapasse a largura do quadrado */
-    overflow: hidden; /* Garante que o texto não ultrapasse o quadrado */
+.info-container:hover h1, .info-container:hover p {
+    font-size: 1.2rem;
 }
 
 .info-container:hover img {
     top: 10px;
     left: 10px;
-    width: 80px; /* Imagem com tamanho fixo */
-    height: 80px; /* Imagem com tamanho fixo */
+    width: 80px;
+    height: 80px;
 }
 
-/* Estrelas no fundo */
+/* Animação de fundo */
 .background-animation {
     position: fixed;
     top: 0;
@@ -145,4 +138,68 @@ button {
 
 button:hover {
     background-color: #6dd5ed;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .info-container {
+        width: 90vw;
+        height: 50vh;
+        font-size: 0.9rem;
+    }
+
+    .info-container img {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .info-container {
+        width: 95vw;
+        height: 45vh;
+        font-size: 0.8rem;
+    }
+
+    .info-container img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Seção de projetos */
+.projects-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Permite que os projetos fiquem em várias linhas se necessário */
+    margin-top: 30px;
+}
+
+.project {
+    width: 250px;  /* Ajuste do tamanho */
+    height: 250px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s ease, width 0.5s ease, height 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+.project:hover {
+    transform: scale(1.05);
+    width: 270px;
+    height: 270px;
+}
+
+.project h3 {
+    font-size: 1.2rem;
+    color: #fff;
 }
