@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.info-container {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transform-origin: center;
+    transition: transform 0.5s ease, padding 0.5s ease, opacity 0.5s ease, width 0.5s ease, height 0.5s ease;
+    display: flex;
+    flex-direction: column; /* Adicionando flex-direction vertical */
+    justify-content: flex-start; /* Alinha o conteúdo no topo */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+.info-container .text-content {
+    display: block;
+    transition: font-size 0.5s ease;
+    word-wrap: break-word;
+}
+
+/* Controle de tamanhos no texto */
+.info-container h1, .info-container p {
+    font-size: 1rem;
+    transition: font-size 0.5s ease;
+    margin: 5px 0; /* Espaço entre os itens de texto */
+}
+
+/* Ajuste na imagem para não aumentar muito */
+.info-container img {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    transition: top 0.5s ease, left 0.5s ease;
+}
+
+/* Expansão controlada */
+.info-container:hover {
+    transform: scale(1.1);
+    padding: 30px;
+    width: 80vw; /* Limita a largura */
+    height: 60vh; /* Limita a altura */
+    opacity: 1;
+}
+
+.info-container:hover .text-content {
+    font-size: 1.2rem; /* Limita o aumento do texto */
+    max-width: 90%; /* Garante que o texto não ultrapasse a largura do quadrado */
+    overflow: hidden; /* Garante que o texto não ultrapasse o quadrado */
+}
+
+.info-container:hover img {
+    top: 10px;
+    left: 10px;
+    width: 80px; /* Imagem com tamanho fixo */
+    height: 80px; /* Imagem com tamanho fixo */
+}
+
+/* Estrelas no fundo */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.estrela {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: piscar 3s infinite;
+    opacity: 0.8;
+}
+
+@keyframes piscar {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
